@@ -218,7 +218,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button_handler))
     print("🤖 Bot is running...")
-    app.run_polling()
+    app.idle()
 
 if __name__ == "__main__":
     main()
