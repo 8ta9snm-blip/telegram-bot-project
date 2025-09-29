@@ -2,7 +2,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 # 🟢 التوكن الخاص بالبوت
-TOKEN = "8434901036:AAEfl4sqXPW64W6y-SEi3LtSC0IhkngNi1s"
+import os
+TOKEN = os.environ.get("TOKEN")
 
 # ==============================
 # 🎥 مسارات ملفات الفيديو لكل تطبيق
