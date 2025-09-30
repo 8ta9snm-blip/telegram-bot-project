@@ -3,6 +3,8 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 
 # 🟢 التوكن الخاص بالبوت
 import os
+from dotenv import load_dotenv
+load_dotenv()
 TOKEN = os.environ.get("TOKEN")
 
 # ==============================
@@ -219,7 +221,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button_handler))
     print("🤖 Bot is running...")
-    app.run_until_disconnected()
+    app.run_idle()
 
 if __name__ == "__main__":
     main()
