@@ -211,6 +211,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # 🚀 بدء التشغيل
 # ==============================
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("Received /start command")
     await update.message.reply_text("🤖 أهلاً بك! تفضل بالاختيار:", reply_markup=main_menu())
 
 def main():
@@ -218,7 +219,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button_handler))
     print("🤖 Bot is running...")
-    app.idle()
+    app.run_until_disconnected()
 
 if __name__ == "__main__":
     main()
