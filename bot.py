@@ -9,14 +9,14 @@ TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "YOUR_DEFAULT_TOKEN_HERE") # Load t
 # 🎥 مسارات ملفات الفيديو لكل تطبيق
 # ==============================
 # --- SUGO ---
-SUGO_VIDEO_1 = "BAACAgQAAxkBAAID9mjhQ0oZQr5EznZ7hOLH4xrJk3v2AALiGgACoBAQUww0mubA-akPNgQ"
-SUGO_VIDEO_2 = "BAACAgQAAxkBAAID-mjhRYaJoDTaN_fi5ZInvy_WzZVFAALoGgACoBAQU19k3YVthWb9NgQ"
-SUGO_VIDEO_3 = "BAACAgQAAxkBAAID_GjhRiBDYdgfH-LQ1evk6BgWNY8GAALrGgACoBAQU8_XQZO6co-zNgQ"
+SUGO_VIDEO_1 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/pvwmdJRRfQuZNsSQ.mp4"
+SUGO_VIDEO_2 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/KQFbQbLwsHwyqbfv.mp4"
+SUGO_VIDEO_3 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/hJktqsxTcGVUikoW.mp4"
 
 # --- SOMATCH ---
-SOMATCH_VIDEO_1 = "BAACAgQAAxkBAAID_mjhRo67cTLSP15YbUheaQUuyHiLAALuGgACoBAQU2Equ-WV1U9dNgQ"
-SOMATCH_VIDEO_2 = "BAACAgQAAxkBAAIEAAFo4UauSc36j89sHqGIJc5RUYITZQAChBoAAiAKEFM7Q15OOewt1TYE"
-SOMATCH_VIDEO_3 = "BAACAgQAAxkBAAIEAmjhRvJiNjrELmM8I4BwEBrhXkbQAALxGgACoBAQU_yh_8aTKu2MNgQ"
+SOMATCH_VIDEO_1 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/gGeqfsRYzzUZyOZz.mp4"
+SOMATCH_VIDEO_2 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/mHeabBiDUAjWNVON.mp4"
+SOMATCH_VIDEO_3 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/wOldGlGaydJKoaFL.mp4"
 
 # ==============================
 # 📝 النصوص المرتبطة بكل فيديو
