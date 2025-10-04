@@ -1,4 +1,4 @@
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputFile
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
 import os
 
@@ -9,14 +9,14 @@ TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "YOUR_DEFAULT_TOKEN_HERE") # Load t
 # 🎥 مسارات ملفات الفيديو لكل تطبيق
 # ==============================
 # --- SUGO ---
-SUGO_VIDEO_1 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/pvwmdJRRfQuZNsSQ.mp4"
-SUGO_VIDEO_2 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/KQFbQbLwsHwyqbfv.mp4"
-SUGO_VIDEO_3 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/hJktqsxTcGVUikoW.mp4"
+SUGO_VIDEO_1 = "BAACAgQAAxkDAANEaOGdH1qXo9srIiIE_v5gMj94GjsAAg4ZAAKPGhFTtHJY5DKtUjQ2BA"
+SUGO_VIDEO_2 = "BAACAgQAAxkDAANFaOGdI3lEFR0dkDVyuCCU9wq4Uf8AAg8ZAAKPGhFT6Y-eZMrBvxY2BA"
+SUGO_VIDEO_3 = "BAACAgQAAxkDAANGaOGdJMvWFk035bvoZlUZExNQpL0AAhAZAAKPGhFTxsW6EZHGJyo2BA"
 
 # --- SOMATCH ---
-SOMATCH_VIDEO_1 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/gGeqfsRYzzUZyOZz.mp4"
-SOMATCH_VIDEO_2 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/mHeabBiDUAjWNVON.mp4"
-SOMATCH_VIDEO_3 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663144870324/wOldGlGaydJKoaFL.mp4"
+SOMATCH_VIDEO_1 = "BAACAgQAAxkDAANHaOGdJvFwbP9R39pdLp-GzSQ7MTYAAhEZAAKPGhFTII1K8f81so82BA"
+SOMATCH_VIDEO_2 = "BAACAgQAAxkDAANIaOGdJxJPiUDcFbETrJG-qla5sgsAAhIZAAKPGhFTjDf_WoYVn4I2BA"
+SOMATCH_VIDEO_3 = "BAACAgQAAxkDAANJaOGdKEAfZ4smtS9z5WFavOM9EuoAAhMZAAKPGhFTBkK4WJSWDII2BA"
 
 # ==============================
 # 📝 النصوص المرتبطة بكل فيديو
@@ -163,38 +163,38 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # خطوات Sugo
     if query.data == "sugo_start":
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")
-        await query.message.reply_video(video=SUGO_VIDEO_1, caption=SUGO_CAPTION_1)
+        await query.message.reply_video(video=InputFile(SUGO_VIDEO_1), caption=SUGO_CAPTION_1, parse_mode='HTML')
         await query.message.reply_text(SUGO_TEXT_1_1)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="sugo_step2")]])
         await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)
         return
     if query.data == "sugo_step2":
-        await query.message.reply_video(video=SUGO_VIDEO_2, caption=SUGO_CAPTION_2)
+        await query.message.reply_video(video=SUGO_VIDEO_2, caption=SUGO_CAPTION_2, parse_mode=\'HTML\')
         await query.message.reply_text(SUGO_TEXT_2)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="sugo_step3")]])
         await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)
         return
     if query.data == "sugo_step3":
-        await query.message.reply_video(video=SUGO_VIDEO_3, caption=SUGO_CAPTION_3)
+        await query.message.reply_video(video=SUGO_VIDEO_3, caption=SUGO_CAPTION_3, parse_mode=\'HTML\')
         await query.message.reply_text(SUGO_FINAL_TEXT)
         return
 
     # خطوات Somatch
     if query.data == "somatch_start":
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")
-        await query.message.reply_video(video=SOMATCH_VIDEO_1, caption=SOMATCH_CAPTION_1)
+        await query.message.reply_video(video=SOMATCH_VIDEO_1, caption=SOMATCH_CAPTION_1, parse_mode=\'HTML\')
         await query.message.reply_text(SOMATCH_TEXT_1_1)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="somatch_step2")]])
         await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)
         return
     if query.data == "somatch_step2":
-        await query.message.reply_video(video=SOMATCH_VIDEO_2, caption=SOMATCH_CAPTION_2)
+        await query.message.reply_video(video=SOMATCH_VIDEO_2, caption=SOMATCH_CAPTION_2, parse_mode=\'HTML\')
         await query.message.reply_text(SOMATCH_TEXT_2)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="somatch_step3")]])
         await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)
         return
     if query.data == "somatch_step3":
-        await query.message.reply_video(video=SOMATCH_VIDEO_3, caption=SOMATCH_CAPTION_3)
+        await query.message.reply_video(video=SOMATCH_VIDEO_3, caption=SOMATCH_CAPTION_3, parse_mode=\'HTML\')
         await query.message.reply_text(SOMATCH_FINAL_TEXT)
         return
 
