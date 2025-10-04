@@ -163,7 +163,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # خطوات Sugo
     if query.data == "sugo_start":
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")
-        await query.message.reply_video(video=InputFile(SUGO_VIDEO_1), caption=SUGO_CAPTION_1, parse_mode='HTML')
+        await query.message.reply_video(video=SUGO_VIDEO_1, caption=SUGO_CAPTION_1, parse_mode=\'HTML\')
         await query.message.reply_text(SUGO_TEXT_1_1)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="sugo_step2")]])
         await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)
