@@ -1,3 +1,4 @@
+import os
 import logging
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
@@ -36,7 +37,8 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("7677905673:AAFYB0xbJfE3NRpTUIqz2AJqhjRg3Dr8UJE").build()
+    TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+    application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
 
     # On different commands - answer in Telegram
     application.add_handler(CommandHandler("start", start))
