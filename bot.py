@@ -144,9 +144,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # --- خطوات SUGO ---  
     if query.data == "sugo_start":  
-        await query.message.reply_text(f"يرجى تنزيل تطبيق Sugo من الرابط التالي:\n{SUGO_DOWNLOAD_LINK}")  
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم تحميل التطبيق", callback_data="sugo_downloaded")]])  
-        await query.message.reply_text("بعد تحميل التطبيق، يرجى الضغط على الزر أدناه للمتابعة:", reply_markup=keyboard)  
+        await query.message.reply_text(f"يرجى تنزيل تطبيق Sugo من الرابط التالي:\n{SUGO_DOWNLOAD_LINK}")
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="sugo_downloaded")]])
+        await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "sugo_downloaded":  
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
@@ -168,9 +168,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # --- خطوات SOMATCH ---  
     if query.data == "somatch_start":  
-        await query.message.reply_text(f"يرجى تنزيل تطبيق Somatch من الرابط التالي:\n{SOMATCH_DOWNLOAD_LINK}")  
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم تحميل التطبيق", callback_data="somatch_downloaded")]])  
-        await query.message.reply_text("بعد تحميل التطبيق، يرجى الضغط على الزر أدناه للمتابعة:", reply_markup=keyboard)  
+        await query.message.reply_text(f"يرجى تنزيل تطبيق Somatch من الرابط التالي:\n{SOMATCH_DOWNLOAD_LINK}")
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="somatch_downloaded")]])
+        await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "somatch_downloaded":  
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
