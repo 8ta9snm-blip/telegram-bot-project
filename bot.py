@@ -5,7 +5,6 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 TOKEN = "7677905673:AAFYB0xbJfE3NRpTUIqz2AJqhjRg3Dr8UJE"
 
 # ==============================
-
 # 🎥 مسارات ملفات الفيديو لكل تطبيق
 # ==============================
 
@@ -20,10 +19,8 @@ SOMATCH_VIDEO_2 = "BAACAgQAAxkBAANYaOLahk0THhgX_NYIKS03iHhpW-EAAoQaAAIgChBTbPHgR
 SOMATCH_VIDEO_3 = "BAACAgQAAxkBAANZaOLahr4GPJYAAedLPNk-sMEAAQStDAAC8RoAAqAQEFPEI53utATwkDYE"
 
 # ==============================
-
 # 📝 النصوص المرتبطة بكل فيديو
 # ==============================
-
 COMMON_RULES = """⚠️ شروط هامة:
 1️⃣ ما يكون عند البنت مشكلة تحكي مع داعمين (شباب).
 2️⃣ 🔴 ملاحظة: ما في أي شيء حقيقي بيظهر عن البنت للداعم (✨ هويتك الحقيقية مخفية ✨)."""
@@ -41,15 +38,17 @@ DIFF_NOTICE = "✅ أنتم الآن علمتم ما الفرق بينهما، �
 SUGO_CAPTION_1 = "🎥 خطوة 1 — طريقة إنشاء الحساب بالـ Sugo"
 SUGO_TEXT_1_1 = """💡 طرق حل بعض المشاكل:
 
-1️⃣ إذا كان عندك حساب Sugo مضاف مسبقًا على جهازك، لازم تعملي تقديم من جهاز آخر. وبعد القبول (عادةً خلال 6 ساعات) بتقدري ترجعي تفتحيه على موبايلك الأساسي بدون أي مشاكل.
+1️⃣ إذا كان عندك حساب Sugo مضاف مسبقًا على جهازك، لازم تعملي تقديم من جهاز آخر. وبعد القبول (عادةً خلال 6 ساعات) بتقدري ترجعي تفتحيها على موبايلك الأساسي بدون أي مشاكل.
 
 2️⃣ 🔴 ملاحظة: إذا سبق ووثقتِ حساب Sugo (حتى من موبايل مختلف)، فالحل إنك تخلي بنت تانية تقوم بعملية التوثيق عنك."""
+
 SUGO_CAPTION_2 = "🎥 خطوة 2 — طريقة الانضمام إلى الوكالة وتفعيل الحساب"
 SUGO_TEXT_2 = """⚠️ شروط التوثيق "هام جداً":
 
 1️⃣ إضاءة واضحة وجيدة 💡.
 2️⃣ العمر لازم يكون فوق 18 سنة 🎂.
 3️⃣ التوثيق حصراً عن طريق بنت 👩، الشب ما بيقدر يوثق."""
+
 SUGO_CAPTION_3 = "🎥 خطوة 3 — الفيديو الأخير"
 SUGO_FINAL_TEXT = "هاد المعرف اللي رح تبعتوا عليه معلومات التواصل متل ما ذكرت بالفيديو @Blueberrykity"
 
@@ -57,15 +56,17 @@ SUGO_FINAL_TEXT = "هاد المعرف اللي رح تبعتوا عليه مع�
 SOMATCH_CAPTION_1 = "🎥 خطوة 1 — طريقة إنشاء الحساب بالـ Somatch"
 SOMATCH_TEXT_1_1 = """💡 طرق حل بعض المشاكل:
 
-1️⃣ إذا كان عندك حساب Somatch مضاف مسبقًا على جهازك، لازم تعملي تقديم من جهاز آخر. وبعد القبول (عادةً خلال 6 ساعات) بتقدري ترجعي تفتحيه على موبايلك الأساسي بدون أي مشاكل.
+1️⃣ إذا كان عندك حساب Somatch مضاف مسبقًا على جهازك، لازم تعملي تقديم من جهاز آخر. وبعد القبول (عادةً خلال 6 ساعات) بتقدري ترجعي تفتحيها على موبايلك الأساسي بدون أي مشاكل.
 
 2️⃣ 🔴 ملاحظة: إذا سبق ووثقتِ حساب Somatch (حتى من موبايل مختلف)، فالحل إنك تخلي بنت تانية تقوم بعملية التوثيق عنك."""
+
 SOMATCH_CAPTION_2 = "🎥 خطوة 2 — طريقة الانضمام إلى الوكالة وتفعيل الحساب"
 SOMATCH_TEXT_2 = """⚠️ شروط التوثيق "هام جداً":
 
 1️⃣ إضاءة واضحة وجيدة 💡.
 2️⃣ العمر لازم يكون فوق 18 سنة 🎂.
 3️⃣ التوثيق حصراً عن طريق بنت 👩، الشب ما بيقدر يوثق."""
+
 SOMATCH_CAPTION_3 = "🎥 خطوة 3 — الفيديو الأخير"
 SOMATCH_FINAL_TEXT = "هاد المعرف اللي رح تبعتوا عليه معلومات التواصل متل ما ذكرت بالفيديو @Blueberrykity"
 
@@ -101,7 +102,6 @@ def apps_menu():
         [InlineKeyboardButton("⬅️ رجوع", callback_data="syria")],
     ])
 
-# ---- تعديل: أزرار النهاية الآن توجه إلى عرض الرابط أولاً ----
 def apps_final_menu():
     return InlineKeyboardMarkup([
         [InlineKeyboardButton("💎 Sugo", callback_data="sugo_link")],
@@ -131,12 +131,15 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if query.data == "choose_country":
         await query.edit_message_text("اختر دولتك 🌍:", reply_markup=country_menu())
         return
+
     if query.data == "main":
         await query.edit_message_text("مرحبا 👋، تفضل من القائمة:", reply_markup=main_menu())
         return
+
     if query.data == "syria":
         await query.edit_message_text("🇸🇾 اختر نوع الإنترنت:", reply_markup=syria_menu())
         return
+
     if query.data == "other":
         await query.edit_message_text(f"{COMMON_RULES}\nالرجاء اختيار التطبيق:", reply_markup=other_menu())
         return
@@ -146,25 +149,21 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text(COMMON_RULES)
         await query.message.reply_text("اختر التطبيق 📱:", reply_markup=apps_menu())
         return
+
     if query.data in ["sugo_info", "somatch_info", "sugo_info_other", "somatch_info_other"]:
         await query.message.reply_text(APPS_DIFF)
         await query.message.reply_text(DIFF_NOTICE, reply_markup=apps_final_menu())
         return
+
     if query.data == "net_turkey":
         await query.message.reply_text(COMMON_RULES)
         await query.message.reply_text("الخيار المتاح فقط:", reply_markup=net_turkey_menu())
         return
 
-    # --- NEW: عرض الرابط قبل بدء الخطوات ---
+    # عرض الروابط قبل الخطوات
     if query.data == "sugo_link":
         text = f"💎 تطبيق Sugo للتسجيل:\n{SUGO_PLAY_LINK}\n\nعند تحميل التطبيق ⬆️ يرجى الضغط على تم"
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="sugo_confirm")]])
-        await query.message.reply_text(text, reply_markup=keyboard)
-        return
-
-    if query.data == "somatch_link" and False:  # safety: in case of typo elsewhere — not used, but harmless
-        text = f"💜 تطبيق Somatch للتسجيل:\n{SOMATCH_PLAY_LINK}\n\nعند تحميل التطبيق ⬆️ يرجى الضغط على تم"
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="somatch_confirm")]])
         await query.message.reply_text(text, reply_markup=keyboard)
         return
 
@@ -174,7 +173,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text(text, reply_markup=keyboard)
         return
 
-    # --- بعد الضغط على "تم" نتابع بالخطوات كما كانت ---
+    # --- بعد الضغط على "تم" نتابع بالخطوات ---
     if query.data == "sugo_confirm":
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")
         await query.message.reply_video(video=SUGO_VIDEO_1, caption=SUGO_CAPTION_1)
