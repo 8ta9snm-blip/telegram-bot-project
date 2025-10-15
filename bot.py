@@ -5,6 +5,9 @@ import os
 # التوكن الخاص بالبوت
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 
+SUGO_DOWNLOAD_LINK = "https://play.google.com/store/apps/details?id=com.voicemaker.android"
+SOMATCH_DOWNLOAD_LINK = "https://play.google.com/store/apps/details?id=com.somatch.android"
+
 # مسارات ملفات الفيديو لكل تطبيق
 SUGO_VIDEO_1 = "BAACAgQAAxkBAANUaOLahrcQ1E6y_f3wSHJvUCYGI6IAAuIaAAKgEBBTz0AhDJV87mE2BA"
 SUGO_VIDEO_2 = "BAACAgQAAxkBAANVaOLahuFCLOqxK4qYSVUn6s7-OaoAAugaAAKgEBBTnr9ngJcIq4U2BA"
@@ -141,6 +144,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # --- خطوات SUGO ---  
     if query.data == "sugo_start":  
+        await query.message.reply_text(f"يرجى تنزيل تطبيق Sugo من الرابط التالي:\n{SUGO_DOWNLOAD_LINK}")  
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم تحميل التطبيق", callback_data="sugo_downloaded")]])  
+        await query.message.reply_text("بعد تحميل التطبيق، يرجى الضغط على الزر أدناه للمتابعة:", reply_markup=keyboard)  
+        return  
+    if query.data == "sugo_downloaded":  
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
         await query.message.reply_video(video=SUGO_VIDEO_1, caption=SUGO_CAPTION_1)  
         await query.message.reply_text(SUGO_TEXT_1_1)  
@@ -160,6 +168,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # --- خطوات SOMATCH ---  
     if query.data == "somatch_start":  
+        await query.message.reply_text(f"يرجى تنزيل تطبيق Somatch من الرابط التالي:\n{SOMATCH_DOWNLOAD_LINK}")  
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم تحميل التطبيق", callback_data="somatch_downloaded")]])  
+        await query.message.reply_text("بعد تحميل التطبيق، يرجى الضغط على الزر أدناه للمتابعة:", reply_markup=keyboard)  
+        return  
+    if query.data == "somatch_downloaded":  
         await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
         await query.message.reply_video(video=SOMATCH_VIDEO_1, caption=SOMATCH_CAPTION_1)  
         await query.message.reply_text(SOMATCH_TEXT_1_1)  
