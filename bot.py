@@ -2,8 +2,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 import os
 
-# التوكن الخاص بالبوت
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+# التوكن الخاص بالبوت - استخدم التوكن الجديد
+TELEGRAM_BOT_TOKEN = "7677905673:AAFYB0xbJfE3NRpTUIqz2AJqhjRg3Dr8UJE"
 
 SUGO_DOWNLOAD_LINK = "https://play.google.com/store/apps/details?id=com.voicemaker.android"
 SOMATCH_DOWNLOAD_LINK = "https://play.google.com/store/apps/details?id=com.somatch.android"
@@ -147,7 +147,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # أولاً: رابط التحميل
         await query.message.reply_text(f"يرجى تنزيل تطبيق Sugo من الرابط التالي:\n{SUGO_DOWNLOAD_LINK}")
         # ثانياً: زر تم
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("عند تحميل التطبيق يرجى الضغط على تم", callback_data="sugo_downloaded")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("تم", callback_data="sugo_downloaded")]])
         await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "sugo_downloaded":  
@@ -174,7 +174,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # أولاً: رابط التحميل
         await query.message.reply_text(f"يرجى تنزيل تطبيق Somatch من الرابط التالي:\n{SOMATCH_DOWNLOAD_LINK}")
         # ثانياً: زر تم
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("عند تحميل التطبيق يرجى الضغط على تم", callback_data="somatch_downloaded")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("تم", callback_data="somatch_downloaded")]])
         await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "somatch_downloaded":  
