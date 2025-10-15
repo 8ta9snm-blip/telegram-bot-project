@@ -162,7 +162,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text(text, reply_markup=keyboard)
         return
 
-    if query.data == "somoatch_link":  # safety: in case of typo elsewhere — not used, but harmless
+    if query.data == "somatch_link" and False:  # safety: in case of typo elsewhere — not used, but harmless
         text = f"💜 تطبيق Somatch للتسجيل:\n{SOMATCH_PLAY_LINK}\n\nعند تحميل التطبيق ⬆️ يرجى الضغط على تم"
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="somatch_confirm")]])
         await query.message.reply_text(text, reply_markup=keyboard)
