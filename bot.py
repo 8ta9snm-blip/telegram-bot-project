@@ -15,7 +15,7 @@ SUGO_VIDEO_3 = "BAACAgQAAxkBAANWaOLahoyhojLg7mXhEnLppB9GeBQAAusaAAKgEBBTDg6__l6x
 
 SOMATCH_VIDEO_1 = "BAACAgQAAxkBAANXaOLahr7xZGr4xfapCnELxrPo8fYAAu4aAAKgEBBTpk1D0pJdrBc2BA"
 SOMATCH_VIDEO_2 = "BAACAgQAAxkBAANYaOLahk0THhgX_NYIKS03iHhpW-EAAoQaAAIgChBTbPHgRmNBVko2BA"
-SOMATCH_VIDEO_3 = "BAACAgQAAxkBAANZaOLahr4GPJYAAedLPNk-sMEAAQStDAAC8RoAAqAQEFPEI53utATwkDYE"
+SOMATCH_VIDEO_3 = "BAACAgQAAxkBAANZaOLahr4GPJYAAedLPNk-sMEAAQStDAAC8RoAAqAQDFLEI51utATwkDYE"
 
 # النصوص المرتبطة بكل فيديو
 COMMON_RULES = """⚠️ شروط هامة:
@@ -30,6 +30,14 @@ APPS_DIFF = """🤔 الفرق بينهما:
 4️⃣ الـ Somatch أكثر سهولة من حيث النظام 🌸."""
 
 DIFF_NOTICE = "✅ أنتم الآن علمتم ما الفرق بينهما، يرجى الضغط مرة أخرى على التطبيق المختار."
+
+# رسائل التحميل الجديدة
+DOWNLOAD_MESSAGE = """📱 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها
+
+أولاً: يرجى تحميل التطبيق من الرابط التالي:
+{}
+
+عند تحميل التطبيق يرجى الضغط على زر "تم" أدناه للمتابعة."""
 
 SUGO_CAPTION_1 = "🎥 خطوة 1 — طريقة إنشاء الحساب بالـ Sugo"
 SUGO_TEXT_1_1 = """💡 طرق حل بعض المشاكل:
@@ -119,7 +127,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text("اختر دولتك 🌍:", reply_markup=country_menu())  
         return  
     if query.data == "main":  
-        await query.edit_message_text("مرحبا 👋، تفضل من القائمة:", reply_markup=main_menu())  
+        await query.edit_message_text("مرحباً 🙋‍♀️، تفضل من القائمة:", reply_markup=main_menu())  
         return  
     if query.data == "syria":  
         await query.edit_message_text("🇸🇾 اختر نوع الإنترنت:", reply_markup=syria_menu())  
@@ -142,55 +150,57 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text("الخيار المتاح فقط:", reply_markup=net_turkey_menu())  
         return  
 
-    # --- خطوات SUGO ---  
+    # --- خطوات SUGO مع التحسينات الجديدة ---  
     if query.data == "sugo_start":  
-        await query.message.reply_text(f"يرجى تنزيل تطبيق Sugo من الرابط التالي:\n{SUGO_DOWNLOAD_LINK}")
+        download_msg = DOWNLOAD_MESSAGE.format(SUGO_DOWNLOAD_LINK)
+        await query.message.reply_text(download_msg)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="sugo_downloaded")]])
         await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "sugo_downloaded":  
-        await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
+        await query.message.reply_text("🌟 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
         await query.message.reply_video(video=SUGO_VIDEO_1, caption=SUGO_CAPTION_1)  
         await query.message.reply_text(SUGO_TEXT_1_1)  
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="sugo_step2")]])  
-        await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)  
+        await query.message.reply_text("اضغط للمتابعة ⬇️", reply_markup=keyboard)  
         return  
     if query.data == "sugo_step2":  
         await query.message.reply_video(video=SUGO_VIDEO_2, caption=SUGO_CAPTION_2)  
         await query.message.reply_text(SUGO_TEXT_2)  
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="sugo_step3")]])  
-        await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)  
+        await query.message.reply_text("اضغط للمتابعة ⬇️", reply_markup=keyboard)  
         return  
     if query.data == "sugo_step3":  
         await query.message.reply_video(video=SUGO_VIDEO_3, caption=SUGO_CAPTION_3)  
         await query.message.reply_text(SUGO_FINAL_TEXT)  
         return  
 
-    # --- خطوات SOMATCH ---  
+    # --- خطوات SOMATCH مع التحسينات الجديدة ---  
     if query.data == "somatch_start":  
-        await query.message.reply_text(f"يرجى تنزيل تطبيق Somatch من الرابط التالي:\n{SOMATCH_DOWNLOAD_LINK}")
+        download_msg = DOWNLOAD_MESSAGE.format(SOMATCH_DOWNLOAD_LINK)
+        await query.message.reply_text(download_msg)
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="somatch_downloaded")]])
         await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "somatch_downloaded":  
-        await query.message.reply_text("📌 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
+        await query.message.reply_text("🌟 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
         await query.message.reply_video(video=SOMATCH_VIDEO_1, caption=SOMATCH_CAPTION_1)  
         await query.message.reply_text(SOMATCH_TEXT_1_1)  
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="somatch_step2")]])  
-        await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)  
+        await query.message.reply_text("اضغط للمتابعة ⬇️", reply_markup=keyboard)  
         return  
     if query.data == "somatch_step2":  
         await query.message.reply_video(video=SOMATCH_VIDEO_2, caption=SOMATCH_CAPTION_2)  
         await query.message.reply_text(SOMATCH_TEXT_2)  
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="somatch_step3")]])  
-        await query.message.reply_text("اضغط للمتابعة ➡️", reply_markup=keyboard)  
+        await query.message.reply_text("اضغط للمتابعة ⬇️", reply_markup=keyboard)  
         return  
     if query.data == "somatch_step3":  
         await query.message.reply_video(video=SOMATCH_VIDEO_3, caption=SOMATCH_CAPTION_3)  
         await query.message.reply_text(SOMATCH_FINAL_TEXT)  
         return  
 
-    await query.message.reply_text("عذرًا، لم أفهم الأمر. الرجاء استخدام الأزرار المتاحة.")
+    await query.message.reply_text("عذراً، لم أفهم الأمر. الرجاء استخدام الأزرار المتاحة.")
 
 # بدء التشغيل
 
