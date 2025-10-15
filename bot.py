@@ -31,14 +31,6 @@ APPS_DIFF = """🤔 الفرق بينهما:
 
 DIFF_NOTICE = "✅ أنتم الآن علمتم ما الفرق بينهما، يرجى الضغط مرة أخرى على التطبيق المختار."
 
-# رسائل التحميل الجديدة
-DOWNLOAD_MESSAGE = """📱 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها
-
-أولاً: يرجى تحميل التطبيق من الرابط التالي:
-{}
-
-عند تحميل التطبيق يرجى الضغط على زر "تم" أدناه للمتابعة."""
-
 SUGO_CAPTION_1 = "🎥 خطوة 1 — طريقة إنشاء الحساب بالـ Sugo"
 SUGO_TEXT_1_1 = """💡 طرق حل بعض المشاكل:
 
@@ -150,15 +142,17 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text("الخيار المتاح فقط:", reply_markup=net_turkey_menu())  
         return  
 
-    # --- خطوات SUGO مع التحسينات الجديدة ---  
+    # --- خطوات SUGO مع التعديلات الصحيحة ---  
     if query.data == "sugo_start":  
-        download_msg = DOWNLOAD_MESSAGE.format(SUGO_DOWNLOAD_LINK)
-        await query.message.reply_text(download_msg)
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="sugo_downloaded")]])
+        # أولاً: رابط التحميل
+        await query.message.reply_text(f"يرجى تنزيل تطبيق Sugo من الرابط التالي:\n{SUGO_DOWNLOAD_LINK}")
+        # ثانياً: زر تم
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("عند تحميل التطبيق يرجى الضغط على تم", callback_data="sugo_downloaded")]])
         await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "sugo_downloaded":  
-        await query.message.reply_text("🌟 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
+        # ثالثاً: جملة الخطوات الثلاثة
+        await query.message.reply_text("لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
         await query.message.reply_video(video=SUGO_VIDEO_1, caption=SUGO_CAPTION_1)  
         await query.message.reply_text(SUGO_TEXT_1_1)  
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="sugo_step2")]])  
@@ -175,15 +169,17 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text(SUGO_FINAL_TEXT)  
         return  
 
-    # --- خطوات SOMATCH مع التحسينات الجديدة ---  
+    # --- خطوات SOMATCH مع التعديلات الصحيحة ---  
     if query.data == "somatch_start":  
-        download_msg = DOWNLOAD_MESSAGE.format(SOMATCH_DOWNLOAD_LINK)
-        await query.message.reply_text(download_msg)
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ تم", callback_data="somatch_downloaded")]])
+        # أولاً: رابط التحميل
+        await query.message.reply_text(f"يرجى تنزيل تطبيق Somatch من الرابط التالي:\n{SOMATCH_DOWNLOAD_LINK}")
+        # ثانياً: زر تم
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("عند تحميل التطبيق يرجى الضغط على تم", callback_data="somatch_downloaded")]])
         await query.message.reply_text("عند تحميل التطبيق ⬆️ يرجى الضغط على تم", reply_markup=keyboard)
         return  
     if query.data == "somatch_downloaded":  
-        await query.message.reply_text("🌟 لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
+        # ثالثاً: جملة الخطوات الثلاثة
+        await query.message.reply_text("لدينا ثلاث خطوات للتسجيل يرجى الالتزام بتطبيقها حرفياً مع الحفاظ على تسلسلها")  
         await query.message.reply_video(video=SOMATCH_VIDEO_1, caption=SOMATCH_CAPTION_1)  
         await query.message.reply_text(SOMATCH_TEXT_1_1)  
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ الخطوة التالية", callback_data="somatch_step2")]])  
