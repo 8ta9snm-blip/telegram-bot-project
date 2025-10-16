@@ -1,9 +1,18 @@
 import os
+import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
+# Enable logging
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+logger = logging.getLogger(__name__)
+
 # 🔒 التوكن الخاص بالبوت (لا تشارك هذا النص علناً)
 TOKEN = os.getenv("TOKEN")
+PORT = int(os.environ.get("PORT", "8443"))
+WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 
 # ==============================
 # 🎥 ملفات الفيديو
@@ -224,10 +233,22 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     app = Application.builder().token(TOKEN).build()
+
+    # Add handlers
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button_handler))
-    print("🤖 Bot is running...")
-    app.run_polling()
+
+    # Run the bot using webhook
+    if WEBHOOK_URL:
+        app.run_webhook(listen="0.0.0.0",
+                        port=PORT,
+                        url_path=TOKEN,
+                        webhook_url=f"{WEBHOOK_URL}/{TOKEN}")
+        logger.info(f"Webhook listening on port {PORT} at {WEBHOOK_URL}/{TOKEN}")
+    else:
+        app.run_polling()
+        logger.info("Bot is running with polling...")
 
 if __name__ == "__main__":
     main()
+
