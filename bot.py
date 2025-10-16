@@ -131,7 +131,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text("اختر دولتك 🌍:", reply_markup=country_menu())
         return
     if query.data == "main":
-        await query.edit_message_text("مرحبا 👋، تفضل من القائمة:", reply_markup=main_menu())
+        await query.edit_message_text("مرحباً 👋، تفضل من القائمة:", reply_markup=main_menu())
         return
     if query.data == "syria":
         await query.edit_message_text("🇸🇾 اختر نوع الإنترنت:", reply_markup=syria_menu())
@@ -214,7 +214,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     # --- حالة افتراضية ---
-    await query.message.reply_text("عذرًا، لم أفهم هذا الأمر. الرجاء استخدام الأزرار المتاحة فقط.")
+    await query.message.reply_text("عذراً، لم أفهم هذا الأمر. الرجاء استخدام الأزرار المتاحة فقط.")
 
 # ==============================
 # 🚀 بدء التشغيل
